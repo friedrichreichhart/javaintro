@@ -38,5 +38,9 @@ public class Person {
 
 	}
 	
+	public static void readFromJSON() {
+		//personenListe = readFromJSON
+	}
+	
 
 }
