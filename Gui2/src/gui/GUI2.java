@@ -14,12 +14,14 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.List;
 
 public class GUI2 {
 
 	protected Shell shell;
 	private Text nachname;
 	private Text vorname;
+	private List guiListe;
 
 	/**
 	 * Launch the application.
@@ -54,7 +56,7 @@ public class GUI2 {
 	 */
 	protected void createContents() {
 		shell = new Shell();
-		shell.setSize(450, 300);
+		shell.setSize(450, 395);
 		shell.setText("SWT Application");
 		
 		nachname = new Text(shell, SWT.BORDER);
@@ -81,6 +83,7 @@ public class GUI2 {
 				p.setVorname(getVorname().getText());
 				//
 				Person.getPersonenListe().add(p);
+				getGuiListe().add(p.toString());
 			}
 		});
 		btnFgeListeHinzu.setBounds(43, 127, 147, 25);
@@ -108,6 +111,9 @@ public class GUI2 {
 		});
 		btnWriteJson.setBounds(54, 171, 75, 25);
 		btnWriteJson.setText("write 2 json");
+		
+		guiListe = new List(shell, SWT.BORDER);
+		guiListe.setBounds(43, 221, 261, 125);
 
 	}
 	public Text getNachname() {
@@ -115,5 +121,8 @@ public class GUI2 {
 	}
 	public Text getVorname() {
 		return vorname;
+	}
+	public List getGuiListe() {
+		return guiListe;
 	}
 }
